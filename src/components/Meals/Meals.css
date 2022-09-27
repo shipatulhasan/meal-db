@@ -1,0 +1,16 @@
+.meals-container{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: 20px;
+}
+.meal-container{
+    grid-column: 1/10;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 50px 20px 0 50px ;
+}
+.cart-container{
+    grid-column: 10/-1;
+    background: #ffe0b3;
+}
