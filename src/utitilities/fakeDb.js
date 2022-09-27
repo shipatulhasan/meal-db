@@ -1,7 +1,7 @@
 const addToDb = (meals)=>{
     const meal = storedCart()
     const {strMeal,idMeal} = meals
-    if(meal){
+    if(!meal[idMeal]){
         meal[idMeal] = strMeal
     }
     localStorage.setItem('cart', JSON.stringify(meal))

@@ -22,21 +22,24 @@ const Meals = () => {
         for(const id in getMeal){
            const addedMeal = meals.find(meal => meal.idMeal === id)
            if(addedMeal){
-            const myMeal = getMeal[id]
-            addedMeal.strMeal = myMeal
             savedCart.push(addedMeal)
            }
         }
         setCart(savedCart)
 
     }, [meals])
-    const handleCart = (meal)=>{
-        addToDb(meal)
-        const newCart = [...cart, meal]
-        if(newCart.length > meals.length){
-            alert(`opps! You can't add more then one item`)
-            return
+    const handleCart = (myMeal)=>{
+        addToDb(myMeal)
+        let newCart = []
+        const exists = cart.find(meal => meal.idMeal === myMeal.idMeal)
+        if(!exists){
+
+            newCart = [...cart, myMeal]
         }
+        else{
+            alert('you already selected this product')
+            return
+        } 
         setCart(newCart)
     }
     
