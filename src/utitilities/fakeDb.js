@@ -1,10 +1,10 @@
-const addToDb = (id)=>{
+const addToDb = (meals)=>{
     const meal = storedCart()
-    
-    // if(meal[id]){
-    //     meal[id] = 
-    // }
-
+    const {strMeal,idMeal} = meals
+    if(meal){
+        meal[idMeal] = strMeal
+    }
+    localStorage.setItem('cart', JSON.stringify(meal))
 
 }
 const storedCart = ()=>{
@@ -17,3 +17,5 @@ const storedCart = ()=>{
     return cart
 
 }
+
+export { addToDb, storedCart }
